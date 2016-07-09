@@ -1,0 +1,32 @@
+<Schema name="first">
+  <Cube name="cube1" visible="true" cache="true" enabled="true">
+    <Table name="facts_sales">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="product_id" highCardinality="false" name="Product">
+      <Hierarchy name="defalut" visible="true" hasAll="true" allMemberName="All Products" primaryKey="product_id">
+        <Table name="dim_product">
+        </Table>
+        <Level name="Category" visible="true" column="category" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Item" visible="true" column="item" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="location_id" highCardinality="false" name="Location">
+      <Hierarchy name="default" visible="true" hasAll="true" allMemberName="All Locations" primaryKey="location_id">
+        <Table name="dim_location">
+        </Table>
+        <Level name="Country" visible="true" column="country" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Region" visible="true" column="region" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="City" visible="true" column="city" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Units Sold" column="id" formatString="Standard" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Turnover" column="turnover" formatString="$ ###,###,###,##0.00" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

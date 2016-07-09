@@ -1,0 +1,14 @@
+<Schema name="New Schema1">
+  <Cube name="Checkout" visible="true" cache="true" enabled="true">
+    <Table name="checkout">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Payment method">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+        <Level name="Payment method" visible="true" column="payment_method" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="New Measure 0" column="product_id" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
